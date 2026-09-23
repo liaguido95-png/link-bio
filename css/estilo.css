@@ -1,0 +1,187 @@
+/* Identidade visual (mesmo guia de marca do Giro de Ideias):
+   - Creme #FFFDEC = fundo. Vinho #502533 = texto principal.
+   - Rosa #FF9DD9 = destaque, usado com moderação.
+   - Verde-lima #C1FF72 = acento pontual, nunca em área grande.
+   - Bodoni Moda = headline/serifada editorial. DM Sans = interface e corpo.
+   - Visual flat: cantos quase retos, sem sombra pesada, sem gradiente,
+     sem efeito 3D/vidro. Contraste forte é obrigatório. */
+
+:root {
+  --cor-creme: #FFFDEC;
+  --cor-vinho: #502533;
+  --cor-rosa: #FF9DD9;
+  --cor-lima: #C1FF72;
+
+  --fonte-serif: "Bodoni Moda", Georgia, "Times New Roman", serif;
+  --fonte-sans: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte-sans);
+  color: var(--cor-vinho);
+  background-color: var(--cor-creme);
+  line-height: 1.5;
+}
+
+.pagina {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 3rem 1.2rem 3rem;
+  text-align: center;
+}
+
+@media (min-width: 700px) {
+  .pagina {
+    max-width: 720px;
+    padding: 4rem 2rem 4rem;
+  }
+}
+
+/* Cabeçalho */
+
+.titulo-site {
+  font-family: var(--fonte-serif);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 7vw, 3rem);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.subtitulo {
+  margin: 0.6rem 0 0;
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+/* Lista de links (banners) */
+
+.lista-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 2.8rem;
+}
+
+.banner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  text-align: left;
+  text-decoration: none;
+  color: var(--cor-creme);
+  background-color: var(--cor-vinho);
+  border-radius: 4px;
+  padding: 1.6rem 3.2rem 1.6rem 1.6rem;
+  transition: transform 0.15s ease;
+}
+
+.banner:hover,
+.banner:focus-visible {
+  transform: translateY(-2px);
+}
+
+.banner:focus-visible {
+  outline: 2px solid var(--cor-rosa);
+  outline-offset: 3px;
+}
+
+.banner-etiqueta {
+  font-family: var(--fonte-sans);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cor-vinho);
+  background-color: var(--cor-lima);
+  padding: 0.2rem 0.55rem;
+  border-radius: 2px;
+}
+
+.banner-titulo {
+  font-family: var(--fonte-serif);
+  font-weight: 700;
+  font-size: 1.7rem;
+  line-height: 1.15;
+}
+
+.banner-texto {
+  font-family: var(--fonte-sans);
+  font-size: 0.95rem;
+  color: var(--cor-creme);
+  opacity: 0.9;
+}
+
+.banner-seta {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.4rem;
+  color: var(--cor-rosa);
+}
+
+/* O banner do diagnóstico usa rosa como fundo pra diferenciar os dois links
+   (rosa é a cor de destaque do guia, cabe bem num CTA secundário). Texto
+   volta a ser vinho aqui porque rosa de fundo com creme em cima teria
+   contraste fraco demais. */
+.banner-diagnostico {
+  background-color: var(--cor-rosa);
+  color: var(--cor-vinho);
+}
+
+.banner-diagnostico .banner-texto {
+  color: var(--cor-vinho);
+}
+
+.banner-diagnostico .banner-etiqueta {
+  background-color: var(--cor-vinho);
+  color: var(--cor-creme);
+}
+
+.banner-diagnostico .banner-seta {
+  color: var(--cor-vinho);
+}
+
+/* Rodapé */
+
+.rodape {
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(80, 37, 51, 0.2);
+}
+
+.credito {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  opacity: 0.75;
+}
+
+.credito a {
+  color: var(--cor-vinho);
+  text-decoration: underline;
+  opacity: 1;
+  font-weight: 700;
+}
+
+.credito a:hover {
+  text-decoration: none;
+}
+
+.direitos {
+  margin: 0.35rem 0 0;
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner {
+    transition: none;
+  }
+}
